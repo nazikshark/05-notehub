@@ -22,7 +22,7 @@ export const fetchNotes = async (page: number, perPage: number, search: string =
   return data;
 };
 
-export const createNote = async (note: Omit<Note, 'id'>): Promise<Note> => {
+export const createNote = async (note: Omit<Note, 'id' | 'createdAt' | 'updatedAt'>): Promise<Note> => {
   const { data } = await noteApi.post<Note>('/notes', note);
   return data;
 };
